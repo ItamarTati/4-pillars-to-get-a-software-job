@@ -4,127 +4,253 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Four Pillars of Getting a Software Engineer Job</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --font-primary: 'Inter', 'Calibri', Arial, sans-serif;
+            --max-width: 8.5in;
+            --spacing-unit: 1rem;
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Light Mode */
+        .light {
+            --bg-body: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #6b7280;
+            --accent: #3498db;
+            --accent-hover: #2980b9;
+            --border: #e5e7eb;
+            --card-bg: #f8f9fa;
+            --table-header: #e9ecef;
+            --formula-bg: #fffbeb;
+            --formula-border: #f59e0b;
+            --example-bg: #ecfeff;
+            --example-border: #06b6d4;
+            --emphasis: #e74c3c;
+            --separator: #d1d5db;
+            --note-bg: #f0fdf4;
+            --note-border: #bbf7d0;
+        }
+
+        /* Dark Mode */
+        .dark {
+            --bg-body: #0f172a;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent: #60a5fa;
+            --accent-hover: #3b82f6;
+            --border: #334155;
+            --card-bg: #1e293b;
+            --table-header: #334155;
+            --formula-bg: #451a03;
+            --formula-border: #f97316;
+            --example-bg: #082f49;
+            --example-border: #0ea5e9;
+            --emphasis: #fca5a5;
+            --separator: #475569;
+            --note-bg: #0f3a1f;
+            --note-border: #22c55e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Calibri', Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 8.5in;
+            font-family: var(--font-primary);
+            line-height: 1.7;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 1in;
-            background-color: white;
-            color: #333;
-            font-size: 11pt;
+            padding: calc(var(--spacing-unit) * 2);
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            font-size: 11.5pt;
+            transition: var(--transition);
         }
-        
+
         h1 {
-            font-size: 18pt;
-            font-weight: bold;
+            font-size: 20pt;
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 20px;
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.75rem;
+            letter-spacing: -0.5px;
         }
-        
+
         h2 {
-            font-size: 14pt;
-            font-weight: bold;
-            color: #2980b9;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            border-left: 4px solid #3498db;
-            padding-left: 10px;
+            font-size: 15pt;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 2rem 0 1rem;
+            padding-left: 0.75rem;
+            border-left: 5px solid var(--accent);
+            line-height: 1.4;
         }
-        
+
         .pillar-section {
-            margin-bottom: 30px;
+            margin-bottom: 2.5rem;
             page-break-inside: avoid;
         }
-        
+
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1.2rem 0;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-        
+
         td {
-            padding: 12px;
-            border: 1px solid #dee2e6;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
             vertical-align: top;
+            transition: var(--transition);
         }
-        
+
         td:first-child {
-            font-weight: bold;
-            background-color: #e9ecef;
-            width: 25%;
-            color: #495057;
+            font-weight: 600;
+            background-color: var(--table-header);
+            width: 28%;
+            color: var(--text-secondary);
+            border-right: 1px solid var(--border);
         }
-        
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
         .formula {
-            background-color: #fff3cd;
-            padding: 10px;
-            border-left: 4px solid #ffc107;
-            margin: 10px 0;
+            background-color: var(--formula-bg);
+            color: var(--text-primary);
+            padding: 0.9rem;
+            border-left: 5px solid var(--formula-border);
+            margin: 0.8rem 0;
             font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-weight: 500;
         }
-        
+
         .example {
-            background-color: #d1ecf1;
-            padding: 10px;
-            border-left: 4px solid #17a2b8;
-            margin: 10px 0;
+            background-color: var(--example-bg);
+            color: var(--text-primary);
+            padding: 0.9rem;
+            border-left: 5px solid var(--example-border);
+            margin: 0.8rem 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-size: 0.95em;
         }
-        
-        ul {
-            margin: 10px 0;
-            padding-left: 20px;
+
+        ul, ol {
+            margin: 0.8rem 0;
+            padding-left: 1.5rem;
         }
-        
+
         li {
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
         }
-        
+
         .emphasis {
-            font-weight: bold;
-            color: #e74c3c;
+            font-weight: 700;
+            color: var(--emphasis);
         }
-        
+
         .separator {
-            border-top: 2px solid #bdc3c7;
-            margin: 25px 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--separator), transparent);
+            margin: 2rem 0;
         }
-        
+
         .intro {
             font-style: italic;
             text-align: center;
-            margin-bottom: 30px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
+            margin: 1.5rem 0 2rem;
+            padding: 1.2rem;
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px dashed var(--border);
+            color: var(--text-secondary);
+            font-size: 1.05em;
         }
-        
+
         .download-note {
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 20px;
+            background-color: var(--note-bg);
+            border: 1px solid var(--note-border);
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin: 1.5rem 0;
             text-align: center;
+            color: var(--text-primary);
+            font-weight: 500;
         }
-        
-        ol {
-            margin: 10px 0;
-            padding-left: 20px;
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: var(--transition);
+            font-size: 1.2rem;
         }
-        
-        ol li {
-            margin-bottom: 5px;
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+                font-size: 11pt;
+            }
+            h1 { font-size: 18pt; }
+            h2 { font-size: 14pt; }
+            td { padding: 0.8rem; }
+            td:first-child { width: 35%; }
+        }
+
+        /* Print Styles */
+        @media print {
+            body { padding: 0.5in; font-size: 10pt; }
+            .theme-toggle { display: none; }
+            .separator { background: #ccc !important; }
+            table { box-shadow: none; }
+            * { color: #000 !important; background: white !important; }
+            a { color: #000; text-decoration: underline; }
         }
     </style>
 </head>
-<body>
+<body class="light">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <span id="theme-icon">🌙</span>
+    </button>
+
     <h1>The Four Pillars of Getting a Software Engineer Job</h1>
     
     <div class="intro">
@@ -134,7 +260,7 @@
     <div class="separator"></div>
 
     <div class="pillar-section">
-        <h2>1. Mass Apply: The Numbers Game 🚀</h2>
+        <h2>1. Mass Apply: The Numbers Game</h2>
         <p>You are right—this is often the most important, and often the most overlooked, part of the job search.</p>
         
         <table>
@@ -156,7 +282,7 @@
     <div class="separator"></div>
 
     <div class="pillar-section">
-        <h2>2. Good Quality CV: The Metric-Driven Storyteller 📝</h2>
+        <h2>2. Good Quality CV: The Metric-Driven Storyteller</h2>
         <p>Your CV isn't just a list of responsibilities; it's a marketing document that proves your <strong>impact</strong>.</p>
         
         <table>
@@ -186,7 +312,7 @@
     <div class="separator"></div>
 
     <div class="pillar-section">
-        <h2>3. Good Portfolio: Production-Ready Proof 💻</h2>
+        <h2>3. Good Portfolio: Production-Ready Proof</h2>
         <p>The portfolio is your way of showing, not telling, that you can build professional software.</p>
         
         <table>
@@ -216,7 +342,7 @@
     <div class="separator"></div>
 
     <div class="pillar-section">
-        <h2>4. Good Interview Skills: Confident Execution 🗣️</h2>
+        <h2>4. Good Interview Skills: Confident Execution</h2>
         <p>With a strong CV and portfolio, you'll get the interview; this pillar ensures you convert it into an offer.</p>
         
         <table>
@@ -247,5 +373,36 @@
             </tr>
         </table>
     </div>
+
+    <script>
+        // Theme Toggle Logic
+        const toggleTheme = () => {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            if (body.classList.contains('light')) {
+                body.classList.replace('light', 'dark');
+                icon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.replace('dark', 'light');
+                icon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        };
+
+        // On Load: Respect System Preference + Saved Choice
+        window.addEventListener('load', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const icon = document.getElementById('theme-icon');
+
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.replace('light', 'dark');
+                icon.textContent = '☀️';
+            } else {
+                icon.textContent = '🌙';
+            }
+        });
+    </script>
 </body>
 </html>
